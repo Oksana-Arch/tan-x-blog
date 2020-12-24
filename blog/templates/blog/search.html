@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block content %}
+    <div class="header_fon"></div>
+    <div class="container offset_max">
+        <div class="list-for">
+            {% if results %}
+                <h3>Posts containing "{{ query }}":</h3>
+                {% for post in results %}
+                    {% include 'blog/includes/post_card_template.html' %}
+                {% endfor %}
+                {% if is_paginator %}
+                    {% include "blog/includes/pagintor_card.html" %}
+                {% endif %}
+            {% else %}
+                <h3>Posts Not Found</h3>
+                <img class="oops_img" src="{% static 'img/oops-image.png' %}" alt="oops" width="100%">
+            {% endif %}
+
+
+        </div>
+
+    </div>
+{% endblock %}

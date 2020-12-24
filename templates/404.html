@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    404 - Not found
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <h3 class="not_show">Page Not Found</h3>
+        <div class="back_404">
+            <div class="group_404">
+                <div class="name_404">4</div>
+                <div class="name_404 null"></div>
+                <div class="name_404">4</div>
+            </div>
+            <div class="title_404">We cannot find the page you're looking for.</div>
+            <a href="{% url 'post_list_url' %}" class="btn_404">Go to blog</a>
+
+        </div>
+    </div>
+{% endblock %}

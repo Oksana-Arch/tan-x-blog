@@ -1,0 +1,25 @@
+{% extends 'base_blog.html' %}
+{% load static %}
+
+{% block title %}
+    Post list - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="header_fon"></div>
+    <div class="container offset_max">
+        <div class="post_list">
+            <div class="post_short">
+                {% for post in page_obj.object_list %}
+                    {% include 'blog/includes/post_card_template.html' %}
+                {% endfor %}
+                {% if is_paginator %}
+                    {% include "blog/includes/pagintor_card.html" %}
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

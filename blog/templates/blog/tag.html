@@ -1,0 +1,21 @@
+{% extends 'base_blog.html' %}
+
+{% block title %}
+    {{ tag.title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="header_fon"></div>
+    <div class="container offset_max">
+        <div class="list-for">
+            <h3 class="detail">Post with "{{ tag.title|title }}" tag:</h3>
+        {% for post in tag.posts.all %}
+            {% include 'blog/includes/post_card_template.html' %}
+        {% endfor %}
+        {% if is_paginator %}
+            {% include "blog/includes/pagintor_card.html" %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{#{% include 'blog/includes/post_card_template.html' %}#}

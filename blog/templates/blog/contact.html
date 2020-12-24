@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Contacts
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="form-item">
+            <h3>Contact</h3>
+            <h4>Ask anything, send everything.</h4>
+            <div class="contact">
+                <h5 class="contact_title">Office</h5>
+                <div class="contact_date">
+                    <p class="address">
+                        1005 Langley Street <br> Victoria BC,V8W <br> 1V7 Canada
+                    </p>
+                    <p class="phone">
+                        P: (969) 666-1234<br>M: <span>office@phir.co</span>
+                    </p>
+                </div>
+                <div class="contact_description">
+                    <div class="description_title">Keep it short</div>
+                    <p>
+                        I get a ton of email, so if I don’t respond it doesn’t mean that I haven’t
+                        looked at your work or read your email. I look at all emails, it’s just hard
+                        to respond to every­one. And if you can, please keep the email short. Thanks!
+                    </p>
+                </div>
+            </div>
+
+            <form action="{% url 'contact' %}" method="post">
+                <div class="contact-form-block">
+                    {% csrf_token %}
+                    <div class="comm-form contact-name">
+                        {{ form.name.label }}
+                        {{ form.name }}
+                    </div>
+                    <div class="comm-form contact-email">
+                        {{ form.email.label }}
+                        {{ form.email }}
+                    </div>
+                    <div class="comm-form contact-last">
+                        {{ form.subject.label }}
+                        {{ form.subject }}
+                    </div>
+                    <div class="comm-form contact-last">
+                        {{ form.message.label }}
+                        {{ form.message }}
+                    </div>
+                    <div class="comm-form comm-checkbox">
+                        {{ form.copy }}
+                        <label for="id_copy" class="comm-label">
+                            {{ form.copy.label }}
+                        </label>
+                    </div>
+
+                </div>
+                <button type="submit" class="comm-button">Send Message</button>
+            </form>
+
+
+        </div>
+    </div>
+    <div class="map_global">
+        <div class="map" id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d268927.124817747!2d-89.68865745277765!3d48.43569612178308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ska!2sge!4v1597154659014!5m2!1ska!2sge"
+                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,192 @@
+{% load static %}
+{% load blog_tags %}
+{#{% posts_list_recent %}#}
+{#{% load media %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoons_fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>
+        {% block title %}
+            TANx - Minimalist blog
+        {% endblock %}
+    </title>
+</head>
+<body>
+<section class="wrapper">
+
+    <section class="collapse-menu">
+
+
+
+                    <div class="menu-box">
+                        <div class="menubox-content">
+                            <ul class="menubox-social">
+                                <li>
+                                    {% if request.user.is_authenticated %}
+                                        <a href="{% url 'profile' %}" class="login-btn"></a>
+                                    {% else %}
+                                        <a href="{% url 'login' %}" class="login-btn"></a>
+                                    {% endif %}
+                                </li>
+                                <li class="facebook-btn">
+                                    <a href="{% url 'social:begin' 'facebook' %}" class="facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'social:begin' 'twiter' %}" class="twiter"></a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'social:begin' 'linkedin-oauth2' %}" class="linkedin"></a>
+                                </li>
+                            </ul>
+                            <nav>
+                                <ul class="menu-sidebar">
+                                    <li class="menu-sidebar-title">
+                                        <h6>Pages</h6>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'post_list_url' %}">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'userid_profile' user_id=1 %}">Writer</a>
+                                    </li>
+                                    <li>
+                                        {% if request.user.is_authenticated and request.user.is_staff %}
+                                            <a href="{% url 'archive' %}">Archive</a>
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact' %}">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'error404' %}">404 Page</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'markdown' %}">Markdown</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            {#                {% include 'blog/includes/post_comments.html' %}#}
+                            <div class="last-content">
+                                <ul>
+                                    <li><h6>Recent Posts</h6></li>
+                                    {% post_list_resent as post_list %}
+                                    {% for post in post_list %}
+                                        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="last-content">
+                                <ul>
+                                    <li><h6>Recent Comments</h6></li>
+                                    {% comments_list as comments %}
+                                    {% for comment in comments %}
+                                        <li class="last-comment"><a
+                                                href={{ comment.post.get_absolute_url }}><span>{{ comment.author.first_name }} {{ comment.author.last_name }}</span>
+                                            on {{ comment.post.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </section>
+    <section class="content">
+
+        <header>
+            <div class="container_big">
+
+                <div class="menu-group">
+                    <nav>
+                        <ul class="menu">
+                            <li><a href="{% url 'post_list_url' %}">Blog</a></li>
+                            <li><a href="{% url 'userid_profile' user_id=1 %}" class="menu-btn">Writer</a></li>
+                            <li><a href="{% url 'contact' %}" class="menu-btn">Contact</a></li>
+                        </ul>
+                    </nav>
+
+
+                </div>
+
+                <div class="btn-group">
+                        <div class="second_nav">
+                            <form class="search" action="{% url 'post_search' %}" method="get">
+                                {% csrf_token %}
+                                <label for="id_query" class="search-label"></label>
+                                <input class="search_input" type="search" name="query" id="id_query">
+                                <button type="submit" class="search_btn"></button>
+                            </form>
+                        </div>
+                        <div class="collapse-btn">
+                            <button class="header_button" type="button"></button>
+                        </div>
+                    </div>
+
+                <div class="logo">
+                    <img src="{% static 'img/logo.png' %}" class="header_logo">
+                    <h1>Yet another <a href="{% url 'index' %}">Minimalist</a> blog</h1>
+                </div>
+
+            </div>
+
+        </header>
+        <section class="block-content">
+            {% block content %}
+                There is no any for content
+            {% endblock %}
+        </section>
+
+
+        <footer class="container_big">
+            <div class="footer">
+                <div class="footer_info">
+                    <p>&copy; 2015 <span class="x">tan</span> <br>
+                        All rights reserved.</p>
+                    <p class="footer_des">Developed by <span>Oksana Nazarova</span></p>
+                </div>
+                <div class="footer_social">
+                    <a class="footer_facebook"></a>
+                    <a class="footer_twitter"></a>
+                    <a class="footer_in"></a>
+                </div>
+                <div class="back_to_top">
+                    <button id="back_to_top">Back to top</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</section>
+
+
+
+{% if request.user.is_authenticated and request.user.is_staff %}
+    <div class="admin-panel">
+        {% if request.user.is_authenticated %}
+            <a href="/admin" class="admin-btn" title="Go to site administration"></a>
+        {% endif %}
+        {% block admin-panel %}
+        {% endblock %}
+    </div>
+{% endif %}
+
+<div id="modal">
+    {% include 'account/includes/login_includes.html' %}
+    <h2>Hello!</h2>
+    <p>You are awesome!</p>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+</html>

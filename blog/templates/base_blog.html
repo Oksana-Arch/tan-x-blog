@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block admin-panel %}
+    <a href="{% url 'post_create_url' %}" class="create-post-btn" title="Add post"></a>
+    <a href="{% url 'tag_create_url' %}" class="create-tag-btn" title="Add tag"></a>
+    <a href="{% url 'category_create_url' %}" class="create-category-btn" title="Add category"></a>
+    <a href="{{ admin_obj.get_update_url }}" class="admin-edit-btn" title="Edit"></a>
+    <a href="{{ admin_obj.get_delete_url }}" class="admin-delete-btn" title="Delete"></a>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,20 @@
+{% extends 'base_blog.html' %}
+
+{% block title %}
+    Delete category {{ category.title|title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="form-item">
+            <form action="{{ category.get_delete_url }}" method="post">
+                {% csrf_token %}
+                <h4>A you sure you want delete <span>"{{ category.title|title }}"</span> category</h4>
+                <div class="form-btns">
+                    <a href="{{ category.get_absolute_url }}" class="btn-cancel">Cancel</a>
+                    <button type="submit" name="button" class="btn-delete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

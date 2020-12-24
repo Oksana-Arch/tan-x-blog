@@ -1,0 +1,137 @@
+{% extends 'base_blog.html' %}
+{% load blog_tags %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}
+    {{ post.title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="post_detail">
+            <div class="post">
+                <h3>{{ post.title }}</h3>
+                <h4>{{ post.comment }}</h4>
+                <div class="post_item">
+                    {% if post.image %}
+                        <img src="{{post.image.url}}" alt="{{post.title}}" class="post_short-img">
+                    {% else %}
+                        <div class="none"></div>
+                    {% endif %}
+                    <div class="post_body">
+                        {{ post.body|markdown }}
+                    </div>
+                    <div class="published">{{ post.publish|date:"F d, o" }}</div>
+                </div>
+                <a href="{% url "post_share" post.id %}" class="post_btn">Share this story</a>
+                <div class="keys">
+                    <div class="category">
+                        <h2>Category</h2>
+                        {% if post.categories %}
+                            <a href="{{ post.categories.get_absolute_url }}" class="keys-item">{{post.categories.title}}</a>
+                        {% endif %}
+                    </div>
+                    <div class="tags">
+                        <h2>Tags</h2>
+                        {% for tag in post.tags.all %}
+                            <a href="{{ tag.get_absolute_url }}" class="keys-item">{{ tag.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="liner"></div>
+                <div class="page-btn-grp">
+                    <div class="page-btn">
+                        {% with prev_post=post.get_previous_by_publish %}
+                            {% if prev_post.status == 'published' %}
+                                <a href="{{ prev_post.get_absolute_url }}">Previous Post</a>
+                                <h5>{{ prev_post.title}}</h5>
+                            {% elif prev_post.status == 'draft' %}
+                                {{ prev_post.get_previous_by_publish }}
+                            {% endif %}
+
+                        {% endwith %}
+                    </div>
+                    <div class="page-btn">
+                        {% with next_post=post.get_next_by_publish %}
+                            {% if next_post.status == 'published' %}
+                                <a href="{{ next_post.get_absolute_url }}">Next Post</a>
+                                <h5>{{ next_post.title}}</h5>
+                            {% else %}
+                                {{ next_post.get_next_by_publish }}
+                            {% endif %}
+
+                        {% endwith %}
+                    </div>
+
+{#                    <div class="page-btn">#}
+{#                        <a href="#">Next Post</a>#}
+{#                        <h5>{{ post.get_next_by_publish.title}}</h5>#}
+{#                    </div>#}
+                </div>
+
+
+                <div class="comments">
+                    {% with comments.count as total_comments %}
+                        <div class="comm-tiile">{{ total_comments }} Comment{{ total_comments|pluralize }}</div>
+                    {% endwith %}
+
+                    {% for comment in comments %}
+                        <div class="comm-item">
+                            <div class="comm-block">
+                                <div class="comm-small">
+                                    {% with comment.author.profile.photo as image %}
+                                    {% thumbnail image "90x90" crop="center" as img %}
+                                        <img src="{{ img.url }}" rel="logo">
+                                    {% endthumbnail %}
+                                {% endwith %}
+                                </div>
+                                <div class="comm-content">
+                                    {{ comment.content|linebreaks }}
+                                </div>
+                            </div>
+                            <div class="comm-block">
+                                <div class="comm-small"></div>
+                                <div class="comm-content">
+                                    <div class="author">
+                                        <a href="{% url 'userid_profile' user_id=comment.author.id %}">
+                                            <span>{{ comment.author.first_name}} {{comment.author.last_name}}</span></a> on:
+                                        {{ comment.pub_date }}
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    {% endfor %}
+
+                    {% if request.user.is_authenticated and request.user.is_staff %}
+                        <div class="comm-title">Leave a Comment</div>
+                        <form id="comment_form" action="." method="post" onsubmit="myFunction()">
+                            {% csrf_token %}
+                            {% for field in comment_form %}
+                                <div class="comm-form">
+                                    {% if field.errors %}
+                                        <div class="form-errors">
+                                            {{ field.errors }}
+                                        </div>
+                                    {% endif %}
+                                    {{ field }}
+                                </div>
+                            {% endfor %}
+                            <p><input type="submit" value="Post Comment" class="comm-button"></p>
+                            <p><input type="hidden" value="reset form" on="this.form.reset();"></p>
+                        </form>
+                    {% endif %}
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#{% url 'post:add_comment' post.id %}#}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Markdown
+{% endblock %}
+{% block content %}
+    <div class="container offset_min">
+        <h3>Markdown</h3>
+        <h4>What is Markdown and how is it used.</h4>
+        <img src="{% static 'img/markdown.png' %}" class="markdown_img">
+        <div class="post_body-short indent">
+            <br>
+            <p>
+                Markdown is a way to style text on the web.
+                You control the display of the document; formatting words as bold or italic,
+                adding images, and creating lists are just a few of the things we can do with Markdown.
+                Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like # or *.
+            </p>
+            <br>
+            <p>
+                Markdown is not a replacement for HTML, or even close to it. Its syntax is very small,
+                corresponding only to a very small subset of HTML tags. The idea is not
+                to create a syntax that makes it easier to insert HTML tags. In my opinion,
+                HTML tags are already easy to insert. The idea for Markdown is to make it easy to read,
+                write, and edit prose. HTML is a publishing format; Markdown is a writing format.
+                Thus, Markdown’s formatting syntax only addresses issues that can be conveyed in plain text.
+            </p>
+            <br>
+            <p>
+                For any markup that is not covered by Markdown’s syntax, you simply use HTML itself.
+                There’s no need to preface it or delimit it to indicate that you’re switching from
+                Markdown to HTML; you just use the tags.
+            </p>
+            <br>
+            <p>
+                The only restrictions are that block-level HTML elements — e.g. &lt;div&gt;, &lt;table&gt;, &lt;pre&gt;,
+                &lt;p&gt;, etc. — must be separated from surrounding content by blank lines, and the start and end tags
+                of
+                the block should not be indented with tabs or spaces. Markdown is smart enough not to add extra
+                (unwanted)
+                &lt;p&gt; tags around HTML block-level tags.
+            </p>
+            <div class="exemple">
+                <p class="exp">Example:</p>
+                <br>
+                <p class="noindent">
+                    &lt;br&gt;
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    The great [Naoto Fuka­sawa](https://naotofukasawa.com) has designed a series of
+                    kitchen appli­ances for [Muji](https://naotofukasawa.com), that are now avail­able
+                    in the US, and will be in the UK in the fall. The entire col­lec­tion is super
+                    min­i­mal and func­tional, but I’m in love with the toaster. Def­i­nitely going
+                    to replace my cur­rent toaster.
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    *Muji has had a <span>full line of kitchen appli­ances avail­able</span> for
+                    a while in Japan, and it seems like they’re going to start bring­ing more of
+                    the prod­ucts to the US and Europe. Good news for us.*
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    ![alt-текст](https://www.muji.us/store.../4547315968633_02_1260.jpg "Muji Toster")
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    &lt;br&gt;
+                    <br>
+                    &lt;q&gt;I am a minimalist. I like saying the most with the least.&lt;/q&gt;
+                    <br>
+                    <br>
+                    &lt;cite&gt;Bob Newhart&lt;/cite&gt;
+                    <br>
+                    <br>
+                    <br>
+                    &lt;br&gt;
+                    The great [Naoto Fuka­sawa](https://naotofukasawa.com) has designed a series of
+                    kitchen appli­ances for [Muji](https://naotofukasawa.com), that are now avail­able in
+                    the US, and will be in the UK in the fall. The entire col­lec­tion is super min­i­mal
+                    and func­tional, but I’m in love with the toaster. Def­i­nitely going to replace my cur­rent
+                    toaster.
+                </p>
+            </div>
+
+        </div>
+        <ul class="profile_button">
+            <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a></li>
+            <li><a href="https://gist.github.com/Jekins/2bf2d0638163f1294637" target="_blank">Markdown Cheatsheet (Russian)</a></li>
+        </ul>
+    </div>
+{% endblock %}

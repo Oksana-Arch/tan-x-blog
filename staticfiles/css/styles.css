@@ -1,0 +1,1231 @@
+@font-face {
+font-family: 'fontad847601b9f9152fe1d2eccc4f3fe885';
+
+    src:    url('https://nomail.com.ua/files/eot/ad847601b9f9152fe1d2eccc4f3fe885.eot?#iefix') format('embedded-opentype'),
+            url('https://nomail.com.ua/files/woff/ad847601b9f9152fe1d2eccc4f3fe885.woff') format('woff'),
+            url('https://nomail.com.ua/files/woff2/ad847601b9f9152fe1d2eccc4f3fe885.woff2') format('woff2');
+}
+@font-face {
+font-family: 'font7d75bcdf69f8e6b3d4d76b819a42cc5f';
+
+    src:    url('https://nomail.com.ua/files/eot/7d75bcdf69f8e6b3d4d76b819a42cc5f.eot?#iefix') format('embedded-opentype'),
+            url('https://nomail.com.ua/files/woff/7d75bcdf69f8e6b3d4d76b819a42cc5f.woff') format('woff'),
+            url('https://nomail.com.ua/files/woff2/7d75bcdf69f8e6b3d4d76b819a42cc5f.woff2') format('woff2');
+}
+@font-face { font-family: 'SuisseBPIntl-Regular';
+    src: local('SuisseBPIntl-Regular'), url('https://nomail.com.ua/files/woff/7d75bcdf69f8e6b3d4d76b819a42cc5f.woff') format('woff');
+}
+@font-face {
+font-family: 'fontefaa459603a0aae4738f3b4492097685';
+
+    src:    url('https://nomail.com.ua/files/eot/efaa459603a0aae4738f3b4492097685.eot?#iefix') format('embedded-opentype'),
+            url('https://nomail.com.ua/files/woff/efaa459603a0aae4738f3b4492097685.woff') format('woff'),
+            url('https://nomail.com.ua/files/woff2/efaa459603a0aae4738f3b4492097685.woff2') format('woff2');
+}
+@font-face { font-family: 'SuisseBPNeue-Light';
+    src: local('SuisseBPNeue-Light'), url('https://nomail.com.ua/files/woff/efaa459603a0aae4738f3b4492097685.woff') format('woff');
+}
+@font-face {
+font-family: 'fontef1cae6480795cf3e7db94dded8ed0c3';
+
+    src:    url('https://nomail.com.ua/files/eot/ef1cae6480795cf3e7db94dded8ed0c3.eot?#iefix') format('embedded-opentype'),
+            url('https://nomail.com.ua/files/woff/ef1cae6480795cf3e7db94dded8ed0c3.woff') format('woff'),
+            url('https://nomail.com.ua/files/woff2/ef1cae6480795cf3e7db94dded8ed0c3.woff2') format('woff2');
+}
+@font-face { font-family: 'SuisseBPNeue-Medium';
+    src: local('SuisseBPNeue-Medium'), url('https://nomail.com.ua/files/woff/ef1cae6480795cf3e7db94dded8ed0c3.woff') format('woff');
+}
+
+:root {
+    box-sizing: border-box;
+}
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'SuisseBPNeue-Light', serif;
+    position: relative;
+}
+.container_big {
+    max-width: 1640px;
+    margin: 0 auto;
+    position: relative;
+}
+p {
+    margin: 0;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.none {
+    display: none;
+}
+h1 {
+    text-align: center;
+    font-size: 22px;
+    color: #888;
+    font-weight: 200;
+    padding-top: 35px;
+    padding-bottom: 345px;
+    margin-bottom: 0;
+}
+h1 > a {
+    font-family: 'SuisseBPNeue-Medium', serif;
+    color: #1d1d1b;
+    padding-bottom: 3px;
+    border-bottom: 2px solid;
+    border-color: #ccc;
+    cursor: pointer;
+}
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 60px;
+    color: #111;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}
+
+#modal {
+    display: none;
+}
+.not_show{
+    display: none;
+}
+/*****************************************Header************************************************/
+header {
+    background-color: #eef1f8;
+    padding-top: 65px;
+    background-size: cover;
+    height: 600px;
+}
+.header_fon {
+    background-color: #eef1f8;
+    background-size: cover;
+    height: 400px;
+}
+.menu {
+    display: flex;
+    padding-left: 0;
+    padding-bottom: 82px;
+}
+.menu > li > a {
+    font-family: 'SuisseBPIntl-Regular', serif;
+    color: #999;
+    font-size: 18px;
+    text-decoration: none;
+}
+.menu-active > li > a {
+    color: #f44336;
+}
+.menu > li + li {
+    margin-left: 30px;
+}
+.block-content, .logo {
+    transition: 0.5s;
+}
+
+.block-content-active {
+    transform: translateX(-10%);
+}
+.header_logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/**********************************************menu-box***********************************************************/
+.wrapper {
+    position: relative;
+    overflow-x: hidden;
+}
+.collapse-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 470px;
+    background-color: #111;
+    transition: 0.5s;
+    transform: translateX(100%);
+    z-index: 1;
+    min-height: 100%;
+}
+.collapse-menu-active {
+    transform: translateX(0%);
+}
+.btn-group-active {
+    transform: translateX(-470px);
+}
+.menubox-content {
+    padding: 60px;
+}
+.menubox-social {
+    color: #fff;
+    display: flex;
+}
+.facebook-btn {
+    margin-left: auto;
+}
+.menubox-social > li {
+    padding-right: 10px;
+}
+.login-btn:before {
+    font-family: 'icomoon';
+    content: "\e90f";
+    font-size: 30px;
+    color: #fff;
+}
+.facebook:before {
+    font-family: 'icomoon';
+    content: "\e90e";
+    font-size: 30px;
+    color: #666;
+}
+.twiter:before {
+    font-family: 'icomoon';
+    content: "\e90c";
+    font-size: 30px;
+    color: #666;
+}
+.linkedin:before {
+    font-family: 'icomoon';
+    content: "\e90d";
+    font-size: 30px;
+    color: #666;
+}
+.menu-sidebar > li > a {
+    color: #666;
+    font-family: 'SuisseBPIntl-Regular', serif;
+    font-size: 18px;
+}
+.menu-sidebar > li {
+    margin-bottom: 29px;
+}
+h6 {
+    color: #fff;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 134px;
+    margin-bottom: 29px;
+}
+.last-content {
+    max-width: 280px;
+}
+.last-content li {
+    margin-bottom: 29px;
+}
+.last-content  a {
+    color: #666;
+    font-family: 'SuisseBPIntl-Regular', serif;
+    font-size: 18px;
+    line-height: 22px;
+}
+.last-comment {
+    font-style: italic;
+}
+.last-content  a > span {
+    color: #fff;
+    font-style: normal;
+}
+.facebook, .twiter, .linkedin {
+    display: none;
+}
+
+/***********search**************/
+.btn-group {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.5s;
+}
+
+.search_btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.search_btn::after {
+    content: '\e900';
+    font-family: 'icomoon';
+    font-size: 25px;
+    color: #999;
+    position: absolute;
+    top: -7px;
+    right: 23px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.collapse-btn > button {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 30px;
+    outline: none;
+}
+
+.header_button {
+
+}
+.collapse-btn > button::after {
+    content: '\e901';
+    font-family: 'icomoon';
+    font-size: 32px;
+    color: #999;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    transition: 0.3s;
+}
+.collapse-btn-active > button::after {
+    transform: rotate(90deg);
+    color: #f44336;
+}
+.second_nav {
+    margin-left: auto;
+}
+.header_button {
+    padding: 12px 9px;
+    background-color: #fff;
+}
+.search {
+    position: relative;
+}
+.search_input {
+    position: absolute;
+    right: 95px;
+    bottom: -100%;
+    border: 1px solid #999;
+    border-radius: 2px;
+    height: 35px;
+    background-color: rgba(160, 160, 161, 0.1);
+    transition: 0.2s;
+}
+.search > label {
+    height: 35px;
+    width: 250px;
+    position: absolute;
+    top: 1px;
+    right: 50px;
+}
+
+
+.search_input > input {
+    height: 100%;
+}
+
+/*********************************************post_list*********************************************************/
+.post_short-img {
+    width: auto;
+}
+.gray {
+    background-color: #eef1f8;
+    padding: 200px 0;
+    margin-top: 0;
+}
+.post_short {
+
+}
+.post_body {
+    font-family: 'SuisseBPNeue-Light', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #666;
+}
+.post_btn {
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #111;
+    border-bottom: 2px solid #f44336;
+    text-decoration: none;
+}
+.center_btn{
+    display: block;
+    margin: 0 auto;
+    width: 170px;
+}
+.post_item {
+    margin-bottom: 119px;
+    position: relative;
+}
+.post_item > h3 {
+    margin-top: 40px;
+    text-align: left;
+}
+.published {
+    color: #c5c5c5;
+    font-family: 'SuisseBPNeue-Light', serif;
+    font-size: 22px;
+    line-height: 26px;
+    position: absolute;
+    left: -20%;
+    top: 0;
+    transform: rotate(270deg) translateX(-50%);
+}
+
+/************************************post**********************************************/
+.container-inner {
+    margin-top: -500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+h4 {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'SuisseBPNeue-Light', serif;
+    font-size: 30px;
+    color: #666;
+    max-width: 690px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post > .post_item {
+    margin-top: 195px;
+    background-color: white;
+}
+.post_body, .post_body-short {
+    font-family: 'SuisseBPNeue-Light', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #666;
+}
+.post_body-short * + * {
+    text-decoration: none;
+    font-style: normal;
+    color: inherit;
+}
+.post_body > p > img {
+    width: 690px;
+}
+.post_body > p > a {
+    color: #666;
+    border-bottom: 2px solid #ccc;
+}
+.post_body > p > q {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 48px;
+    line-height: 58px;
+    color: #111;
+}
+.post_body > p > q::before {
+    content: none;
+}
+.post_body > p > cite {
+    font-style: normal;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #111;
+    padding-left: 40px;
+    position: relative;
+}
+.post_body span {
+    border-bottom: 2px solid #f44336;
+}
+.post_body > p > cite, .profile_cite_author:after{
+    content: '';
+    width: 25px;
+    height: 2px;
+    background-color: #f44336;
+    position: absolute;
+    left: 0;
+    top: 50%
+}
+.post > h3{
+    text-align: center;
+}
+.keys {
+    display: flex;
+    margin-top: 90px;
+}
+.category {
+    flex: 2;
+}
+.tags {
+    flex: 1;
+}
+.tags > a {
+    margin-right: 20px;
+}
+h2 {
+    margin-top: 0;
+    margin-bottom: 9px;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #111;
+}
+.keys-item {
+    text-decoration: none;
+    font-family: 'SuisseBPNeue-Light', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #666;
+    border-bottom: 2px solid #ccc;
+}
+.liner {
+    background-color: #ccc;
+    height: 2px;
+    width: auto;
+    margin-top: 100px;
+}
+.page-btn-grp {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.page-btn > a {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #ccc;
+}
+h5 {
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #111;
+    border-bottom: 2px solid #ccc;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+.page-btn:last-child {
+    text-align: right;
+}
+/*comments*/
+.comments {
+    margin-top: 160px;
+}
+.comm-tiile {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #111;
+    margin-bottom: 60px;
+}
+.comm-block {
+    display: flex;
+    justify-content: space-between;
+}
+.comm-small {
+    flex: 1;
+}
+.comm-small > img {
+    border-radius: 50%;
+
+}
+.comm-content {
+    text-align: justify-all;
+    vertical-align: bottom;
+    flex: 5;
+}
+.comm-content > p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    color: #111;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 36px;
+}
+.author {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    color: #666666;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 18px;
+    line-height: 36px;
+    padding-bottom: 60px;
+}
+.author + .author {
+    border-bottom: solid 2px #cccccc;
+}
+
+.author > span {
+    font-weight: 500;
+    border-bottom: solid 2px #cccccc;
+}
+/*leave a comment*/
+.comm-title {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 24px;
+    color: #111;
+    font-weight: 400;
+    line-height: 36px;
+}
+.comm-button {
+    border: none;
+    background-color: transparent;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 36px;
+    border-bottom: solid 2px #cccccc;
+    margin-top: 60px;
+    cursor: pointer;
+    color: #111;
+}
+.comm-form {
+    margin-top: 50px;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #1d1d1b;
+}
+
+.comm-form >input {
+    border: none;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #111;
+    border-bottom: solid 2px #cccccc;
+    width: 100%;
+    background-color: transparent;
+}
+.comm-form >input:focus, .comm-form >textarea:focus {
+    outline: none;
+    border-bottom: 2px solid #f44336;
+}
+.comm-form > textarea {
+    width: 100%;
+    height: 200px;
+    border: none;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #111;
+    border-bottom: solid 2px #cccccc;
+    resize: none;
+    background-color: transparent;
+}
+.comm-checkbox > input{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 15px 0 0 20px;
+}
+
+.comm-checkbox > input + label {
+    position: relative;
+    cursor: pointer;
+}
+.comm-checkbox > input + label::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    top: 2px;
+    right: -30px;
+    border-radius: 50%;
+}
+.comm-checkbox > input + label::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: -25px;
+    top: 7px;
+    border-radius: 50%;
+    background-color: #f44336;
+    opacity: 0;
+    transition: .2s;
+}
+.comm-checkbox > input:checked + label::after {
+    opacity: 1;
+}
+
+
+/**************************************pagination**************************************************/
+.paginator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.paginator_btn {
+    flex: 4;
+}
+.paginator_btn:last-child {
+    text-align: right;
+}
+.paginator-num {
+    flex: 1;
+    text-align: center;
+}
+.paginator-num > a {
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #111;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+}
+.active > a {
+    border-color:  #f44336;
+}
+.paginator_btn > a {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #ccc;
+}
+.paginator-dsl > a {
+    color: #111;
+    pointer-events: none;
+    cursor: alias;
+}
+
+/******************************************************create*****************************************************/
+.container {
+    max-width: 690px;
+    margin: 0 auto;
+}
+.offset_min {
+    margin-top: -185px;
+}
+.offset_max {
+    margin-top: -585px;
+}
+.form-field, .form-field > p {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 15px;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 18px;
+}
+.form-field > textarea{
+    min-height: 600px;
+    resize: none;
+}
+.form-field >p > textarea {
+    box-sizing: border-box;
+    min-height: auto;
+    width: 690px;
+    resize: none;
+    border: 2px solid #ccc;
+}
+.form-field > p > input {
+    border: 2px solid #ccc;
+}
+.form-field > p > a, .form-field > a {
+    color: #ccc;
+}
+.form-field > ul {
+    border: none;
+    display: flex;
+    margin-right: 10px;
+}
+.form-field > ul > li {
+    margin-right: 10px;
+}
+
+.form-btn {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    width: 100%;
+    cursor: pointer;
+    border: 2px solid #f44336;
+    border-radius: 3px;
+    background-color: transparent;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: #111;
+    text-align: center;
+}
+.form-btn > a {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    color: #111;
+}
+.form-item {
+    margin-bottom: 30px;
+}
+.form-control {
+    margin-top: 5px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    text-decoration: none;
+}
+.list-for > h3 {
+    margin-top: -80px;
+    margin-bottom: 50px;
+}
+.form-errors {
+    font-size: 10px;
+    color: #f44336;
+}
+h4 > span {
+    color: #f44336;
+}
+.form-btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.btn-cancel {
+    border: 2px solid #bed7ff;
+    background-color: #bed7ff;
+    padding: 10px 45px;
+    margin-right: 15px;
+    color: white;
+}
+.btn-delete{
+    border: 2px solid #f44336;
+    background-color: #f44336;
+    color: white;
+    padding: 10px 45px;
+    cursor: pointer;
+}
+.errorlist > li {
+    line-height: 30px;
+    font-size: 16px;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    color: #f44336;
+}
+.small-padding > p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.form-block > ul {
+    display: block;
+}
+.body-offset {
+    margin-top: 150px;
+}
+/*****************************************contact*******************************************/
+.contact {
+    margin-top: 150px;
+}
+.contact_title, .description_title {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 24px;
+    line-height: 36px;
+    color: #111;
+    border-bottom: none;
+}
+.contact_date {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.address{
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 18px;
+    line-height: 30px;
+    color: #666;
+}
+.phone{
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 40px;
+    color: #666;
+}
+.phone > span {
+    border-bottom: solid 2px #ccc;
+}
+.contact_description {
+    margin-top: 100px;
+}
+
+.contact_description > p {
+    margin-top: 35px;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #666;
+}
+
+
+.contact-form-block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-form {
+    margin-top: 50px;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #1d1d1b;
+}
+.contact-form > label {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 18px;
+    line-height: 36px;
+    color: #1d1d1b;
+}
+.contact-name {
+    flex: 50%;
+    padding-right: 15px;
+}
+.contact-email {
+    flex: 50%;
+    padding-left: 15px;
+}
+.contact-last {
+    flex: 100%;
+}
+.map_global {
+    position: relative;
+    /*overflow: hidden;*/
+    height: 460px;
+    margin-top: 100px;
+}
+.map {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+}
+.map > iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+.gm-inset {
+    display: none;
+}
+/***************************************404********************************************************/
+.back_404 {
+    width: 100%;
+    background-color: white;
+    padding-top: 100px;
+    text-align: center;
+}
+.group_404 {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+    align-items: center;
+}
+
+.name_404 {
+    text-align: center;
+    font-size: 180px;
+    font-family: 'SuisseBPNeue-Regular', serif;
+    color: #1d1d1b;
+}
+.null {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #1d1d1b;
+}
+.title_404 {
+    font-family: 'SuisseBPNeue-Regular', serif;
+    font-size: 25px;
+    color: #666;
+    margin-top: 22px;
+    padding-bottom: 80px;
+}
+.btn_404 {
+    font-family: 'SuisseBPNeue-Regular', serif;
+    font-size: 25px;
+    color: white;
+    background-color: #f44336;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.bk-none {
+    background-color: transparent;
+}
+/***********************************Markdown*******************************************/
+.markdown_img {
+    width: 100%;
+    opacity: 55%;
+}
+.indent > p {
+    text-indent: 30px;
+    margin-top: 0;
+}
+.noindent {
+    text-indent: 0;
+    border: 1px solid #5d5b5b;
+    padding: 10px;
+}
+.exp {
+    text-align: center;
+    text-indent: 0;
+    color: #1e1e1e;
+    margin-top: 30px;
+}
+/***************************************account****************************************************************/
+/***************************************profile********************************************************/
+.profile_welcome {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 25px;
+    color: #111;
+}
+.profile_img >img {
+    width: 690px;
+    padding-top: 97px;
+    padding-bottom: 97px;
+}
+.profile_cite {
+    font-style: normal;
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 48px;
+    line-height: 58px;
+    color: #111;
+    text-align: left;
+}
+.profile_cite_author {
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    color: #111;
+    line-height: 36px;
+    position: relative;
+    padding-left: 40px;
+}
+.profile_cite_author:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    color: #f44336;
+}
+.profile_title {
+    font-family: 'SuisseBPIntl-Antique', serif;
+    font-size: 24px;
+    line-height: 36px;
+    color: #111111;
+    text-transform: none;
+}
+.profile_url {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 156px;
+}
+.profile_public > ul > li > a, .profile_interviews > ul > li > a {
+    color: #666;
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 48px;
+    border-bottom: solid 2px #666;
+}
+
+.profile_button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 150px;
+}
+.profile_button >li >a{
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #111;
+    border-bottom: 2px solid #f44336;
+    text-decoration: none;
+}
+.form_title {
+    font-family: 'SuisseBPNeue-Medium', serif;
+    font-size: 22px;
+    line-height: 36px;
+    color: #666;
+}
+.title_center {
+    text-align: center;
+    line-height: 35px;
+}
+
+
+/*******************************************************admin-panel***********************************************************/
+.admin-panel {
+    position: fixed;
+    bottom: 25%;
+    left: 6%;
+    background-color: #eef1f8;
+    width: auto;
+    height: 50px;
+    border: 2px solid #f44336;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.admin-btn:before {
+    content: "\e976";
+    font-family: 'icomoon';
+    font-size: 30px;
+    color: #666;
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+    line-height: 45px;
+}
+.create-post-btn:before {
+    content: "\e909";
+    font-family: 'icomoon';
+    font-size: 30px;
+    color: #666666;
+    line-height: 45px;
+    margin-left: 10px;
+}
+.create-tag-btn:before {
+    content: "\e90b";
+    font-family: 'icomoon';
+    font-size: 30px;
+    color: #666666;
+    line-height: 45px;
+    margin-left: 10px;
+}
+.create-category-btn:before {
+    content: "\e90a";
+    font-family: 'icomoon';
+    font-size: 30px;
+    color: #666666;
+    line-height: 45px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.create-category-btn {
+    border-right: 2px solid #f44336;
+    /*padding-right: 10px;*/
+}
+.admin-edit-btn:before {
+    font-family: 'icomoon';
+    content: "\e908";
+    font-size: 30px;
+    color: #666666;
+    line-height: 45px;
+    margin-left: 10px;
+}
+.admin-edit-btn {
+
+}
+.admin-delete-btn:before {
+    font-family: 'icomoon';
+    content: "\e9ac";
+    font-size: 30px;
+    color: #666666;
+    line-height: 45px;
+    margin-left: 10px;
+    /*padding-right: 10px;*/
+}
+.admin-btns {
+    text-align: center;
+    border-left: 2px solid #f44336;
+}
+
+
+/*****************************************************footer********************************************************/
+
+.footer {
+    margin-top: 180px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 77px;
+}
+.footer_info {
+    font-family: 'SuisseBPIntl-Regular', serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.03px;
+    color: #bbbbbb;
+    flex: 30%;
+}
+.footer_info > p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.footer_info > p > span {
+    color: #111;
+    position: relative;
+}
+.footer_info > p > .x::before{
+    content: ".";
+    color: #f44336;
+}
+.footer_info > p > .x::after{
+    content: "x";
+    color: #111;
+    font-size: 10px;
+    position: absolute;
+    top: -2px;
+}
+.footer_des {
+    padding-top: 26px;
+}
+.footer_social{
+    color: #bbb;
+    font-size: 24px;
+    line-height: 24px;
+    align-items: center;.
+    flex: 40%;
+}
+.footer_facebook::after {
+    font-family: 'icomoon';
+    content: "\e903";
+}
+.footer_twitter::after {
+    font-family: 'icomoon';
+    content: "\e902";
+}
+.footer_in::after {
+    font-family: 'icomoon';
+    content: "\e904";
+}
+.back_to_top {
+    flex: 30%;
+    text-align: end;
+}
+.back_to_top > button {
+    border: none;
+    background-color: transparent;
+    font-family: 'SuisseBPIntl-Regular', serif;
+    color: #111;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/*****************************************************fonts********************************************************/
+@font-face { font-family: 'SuisseBPIntl-Antique';
+    src: url(../fonts/ad847601b9f9152fe1d2eccc4f3fe885.woff) format('woff');
+}
+
+@font-face { font-family: 'SuisseBPIntl-Regular';
+    src: local('SuisseBPIntl-Regular'), url(../fonts/7d75bcdf69f8e6b3d4d76b819a42cc5f.woff) format('woff');
+}
+@font-face { font-family: 'SuisseBPNeue-Light';
+    src: local('SuisseBPNeue-Light'), url(../fonts/efaa459603a0aae4738f3b4492097685.woff) format('woff');
+}
+@font-face { font-family: 'SuisseBPNeue-Medium';
+    src: local('SuisseBPNeue-Medium'), url(../fonts/ef1cae6480795cf3e7db94dded8ed0c3.woff) format('woff');
+}

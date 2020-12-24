@@ -1,0 +1,21 @@
+<nav aria-label="...">
+    <ul class="paginator">
+        <li class="paginator_btn {% if not prev_url %} paginator-dsl {% endif %}">
+            <a href="{{ prev_url }}">Previous</a>
+        </li>
+        {% for n in page_obj.paginator.page_range %}
+            {% if page_obj.number == n %}
+                <li class="paginator-num active">
+                    <a href="?page={{ n }}">{{ n }}</a>
+                </li>
+            {% elif n > page_obj.number|add:-3 and n < page_obj.number|add:3 %}
+                <li class="paginator-num">
+                    <a href="?page={{ n }}">{{ n }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        <li class="paginator_btn {% if not next_url %} paginator-dsl {% endif %}">
+            <a href="{{ next_url }}">Next</a>
+        </li>
+    </ul>
+</nav>

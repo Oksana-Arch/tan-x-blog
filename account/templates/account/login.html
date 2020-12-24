@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ Login }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div id="modal">
+        <h4>Log-in</h4>
+        <p>Please, use the following form to log-in:</p>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><input type="submit" value="Log in"></p>
+        </form>
+    </div>
+{% endblock %}

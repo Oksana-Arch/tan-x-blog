@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Share a post
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="form-item">
+            {% if sent %}
+            <h4>E-mail succesfully sent</h4>
+            <p>"{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.</p>
+        {% else %}
+            <h4>Share "{{ post.title }}" by e-mail</h4>
+            <form action="." method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="comm-form">
+                    {{ field.label }}
+                    {{ field }}
+                </div>
+                {% endfor %}
+
+
+                <input class="form-btn" type="submit" value="Send e-mail">
+            </form>
+        {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Log-in
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <form action="{% url 'login' %}" method="post">
+        {% for field in form %}
+            <div class="form-field">
+                {% if field.errors %}
+                    <div class="form-errors">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+                {{ field.label }}
+                {{ field }}
+            </div>
+
+                {% endfor %}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <p><input type="submit" value="login" class="form-btn"></p>
+    </form>
+    <p class="title_center"><a href="{% url 'password_reset' %}" class="comm-button">Forgotten your password</a></p>
+    <p class="form_title title_center">Do not account</p>
+    <p class="form-btn"><a href="{% url 'register' %}" >registration</a></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base_blog.html' %}
+
+{% block title %}
+    Post Create - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="header_fon"></div>
+    <div class="container offset_max">
+        <div class="form-item">
+            <h4>Add new Post</h4>
+            <form class="" action="{% url 'post_create_url' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <div class="form-field">
+                        {% if field.errors %}
+                            <div class="form-errors">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                        {{ field.label }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="form-btn">Create new post</button>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Logged out
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <h4>Logged out</h4>
+        <p class="form_title title_center">You have been succesfully logged out
+            You can <br> <a href="{% url 'login' %}" class="post_btn">Log-in again</a>
+        </p>
+    </div>
+{% endblock %}

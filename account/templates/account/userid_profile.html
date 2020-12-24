@@ -1,0 +1,42 @@
+{% extends 'base.html' %}.
+{% load blog_tags %}
+
+{% block title %}
+    My profile
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <h3>I'm {{ user.first_name }} {{ user.last_name }}.</h3>
+        <h4>{{ user.profile.title }}</h4>
+        <div class="post_body body-offset">{{ user.profile.description|markdown }}</div>
+        <div class="profile_img">
+            {% if user.profile.photo %}
+                <img src="{{ user.profile.photo.url }}" title="{{ user.username }}">
+            {% endif %}
+        </div>
+        <div class="profile_cite">
+            {{ user.profile.cite }}
+        </div>
+        {% if user.profile.cite_author %}
+            <div class="profile_cite_author">
+                {{ user.profile.cite_author }}
+            </div>
+        {% endif %}
+
+        <div class="profile_url">
+            {% if user.profile.interviews and user.profile.puplic %}
+                <div class="profile_interviews">
+                    <h6 class="profile_title">Interviews</h6>
+                    {{ user.profile.interviews|markdown }}
+                </div>
+                <div class="profile_public">
+                    <h6 class="profile_title">Publications</h6>
+                    {{ user.profile.puplic|markdown }}
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

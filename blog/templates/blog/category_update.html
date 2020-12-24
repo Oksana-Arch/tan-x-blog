@@ -1,0 +1,29 @@
+{% extends 'base_blog.html' %}
+
+{% block title %}
+    Edit category {{ category.title|title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="form-item">
+            <h4>Edit category "{{ category.title }}"</h4>
+            <form action="{{ category.get_update_url }}" method="post">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <div class="form-field">
+                        <div class="form-errors">
+                            {% if field.errors %}
+                                {{ field.errrors }}
+                            {% endif %}
+                        </div>
+                        {{ field.label }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="form-btn">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

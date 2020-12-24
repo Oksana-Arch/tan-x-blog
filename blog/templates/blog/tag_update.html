@@ -1,0 +1,28 @@
+{% extends 'base_blog.html' %}
+
+{% block title %}
+    Edit tag "{{ tag.title|title }}" - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="form-item">
+            <h4>Edit tag "{{ tag.title }}"</h4>
+            <form action="{{ tag.get_update_url }}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-field">
+                        {% if field.errors %}
+                            {{ field.errors }}
+                        {% endif %}
+                        {{ field.label }}
+                        {{ field }}
+                    </div>
+
+                {% endfor %}
+                <button type="submit" class="form-btn">Save</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

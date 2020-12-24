@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+{% block title %}
+    TANx - Minimalist blog - HomePage
+{% endblock %}
+{% block content %}
+    <div class="header_fon"></div>
+    <div class="container offset_max">
+        <div class="post_list">
+            <div class="post_short">
+                {% for post in posts %}
+                    {% include 'blog/includes/post_card_template.html' %}
+                {% endfor %}
+            </div>
+        <div class="center_btn">
+            <a href="{% url 'post_list_url' %}" class="post_btn">Load more posts</a>
+        </div>
+
+        </div>
+    </div>
+{% endblock %}

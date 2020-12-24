@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit your account
+{% endblock %}
+
+{% block content %}
+    <div class="container offset_min">
+        <div class="form-item">
+            <h4>Edit your account</h4>
+            <p class="form_title">You can edit your account using the following form:</p>
+            <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+                <div class="form-field">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
+                    <p>
+                        {{ profile_form.date_of_birth.label }}
+                        {{ profile_form.date_of_birth }}
+                    </p>
+                    <p>
+                        {{ profile_form.photo.label }}
+                        {{ profile_form.photo }}
+                    </p>
+                    <p>
+                        {{ profile_form.title.label }}
+                        {{ profile_form.title }}
+                    </p>
+                    <p>
+                        {{ profile_form.description.label }}
+                        {{ profile_form.description }}
+                    </p>
+                    <p>
+                        <label>A quote that characterizes you</label>
+                        {{ profile_form.cite }}
+                    </p>
+                    <p>
+                        <label>Quote Author</label>
+                        {{ profile_form.cite_author }}
+                    </p>
+                    {% if request.user.is_authenticated and request.user.is_staff %}
+                        <p>
+                            {{ profile_form.interviews.label }}
+                            {{ profile_form.interviews }}
+                        </p>
+                        <p>
+                            <label>Publications</label>
+                            {{ profile_form.puplic }}
+                        </p>
+                    {% endif %}
+                </div>
+                <p><input type="submit" value="Save changes" class="form-btn"></p>
+            </form>
+        </div>
+
+
+    </div>
+{% endblock %}
+
+{#{% url 'profile'%}#}
